@@ -63,7 +63,6 @@
 #  }
 #
 class grafana (
-  $archive_source      = "https://grafanarel.s3.amazonaws.com/builds/grafana-${version}.linux-x64.tar.gz",
   $cfg_location        = $::grafana::params::cfg_location,
   $cfg                 = $::grafana::params::cfg,
   $container_cfg       = $::grafana::params::container_cfg,
@@ -79,7 +78,8 @@ class grafana (
     default           => $::grafana::archive_source
   },
   $service_name        = $::grafana::params::service_name,
-  $version             = $::grafana::params::version
+  $version             = $::grafana::params::version,
+  $archive_source      = "https://grafanarel.s3.amazonaws.com/builds/grafana-${version}.linux-x64.tar.gz"
 ) inherits grafana::params {
 
   # validate parameters here
